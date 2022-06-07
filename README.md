@@ -6,8 +6,10 @@
 ```
 git clone github.com/AlexDev1/test_task.git
 ```
-#### Use docker Postgres:
-Install docker-compose 
+#### Use docker:
+
+Install docker-compose https://docs.docker.com/compose/install/
+
 ```
 docker-compose up -d --build 
 ```
