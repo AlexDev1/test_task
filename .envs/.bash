@@ -1,0 +1,9 @@
+export SQL_ENGINE=django.db.backends.postgresql
+export POSTGRES_DATABASE=django_dev
+export POSTGRES_USER=django
+export POSTGRES_HOST=localhost
+export POSTGRES_PORT=5432
+export POSTGRES_PASSWORD=jpEmJPzmjtRHdyw1ZykyXFyMrixbz3UQ7wuqNmC88jeT2wD1r55ff4a2ffgRYRgL
+export DEBUG=1
+export SECRET_KEY=asdf23r12998#@@!Tb688
+export DJANGO_ALLOWED_HOSTS='localhost 127.0.0.1 [::1]'

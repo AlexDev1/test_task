@@ -1,23 +1,31 @@
-
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.decorators import action
 
-from apps.catalog.models import Product
-from apps.catalog.serializers import ProductSerializer
+from apps.catalog.models import Product, FilialPrice, Filial, Characteristics
+from apps.catalog.serializers import ProductSerializer, FilialPriceSerializer, FilialSerializer, \
+    CharacteristicsSerializer
 
 
 class CatalogViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name']
 
-    @action(detail=True, methods=['get'])
-    def set_password(self, request, pk=None):
-        user = self.get_object()
-        serializer = PasswordSerializer(data=request.data)
-        if serializer.is_valid():
-            user.set_password(serializer.validated_data['password'])
-            user.save()
-            return Response({'status': 'password set'})
-        else:
-            return Response(serializer.errors,
-                            status=status.HTTP_400_BAD_REQUEST)
+
+class FilialPriceViewSet(viewsets.ModelViewSet):
+    queryset = FilialPrice.objects.all()
+    serializer_class = FilialPriceSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['filial']
+
+
+class FilialViewSet(viewsets.ModelViewSet):
+    queryset = Filial.objects.all()
+    serializer_class = FilialSerializer
+
+
+class CharacteristicsViewSet(viewsets.ModelViewSet):
+    queryset = Characteristics.objects.all()
+    serializer_class = CharacteristicsSerializer

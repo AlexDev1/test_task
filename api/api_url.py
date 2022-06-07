@@ -5,11 +5,15 @@ from rest_framework import permissions
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.routers import DefaultRouter
 from api.schemes import BothHttpAndHttpsSchemaGenerator
-from apps.catalog.views import CatalogViewSet
+from apps.catalog.views import CatalogViewSet, FilialPriceViewSet, FilialViewSet, CharacteristicsViewSet
 
 router = DefaultRouter(trailing_slash=False)
 
-router.register(r'catalolg', CatalogViewSet, basename='catalolg')
+router.register(r'product', CatalogViewSet, basename='product')
+router.register(r'catalog', FilialPriceViewSet, basename='catalog')
+router.register(r'filial', FilialViewSet, basename='filial')
+router.register(r'characteristics', CharacteristicsViewSet, basename='characteristics')
+
 
 schema_view = get_schema_view(
     openapi.Info(

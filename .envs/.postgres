@@ -1,0 +1,6 @@
+SQL_ENGINE=django.db.backends.postgresql
+POSTGRES_DB=django_dev
+POSTGRES_USER=django
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+POSTGRES_PASSWORD=jpEmJPzmjtRHdyw1ZykyXFyMrixbz3UQ7wuqNmC88jeT2wD1r55ff4a2ffgRYRgL
