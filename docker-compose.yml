@@ -1,0 +1,41 @@
+version: '3.8'
+
+volumes:
+  postgres_data: {}
+  production_postgres_data_backups: {}
+  static_volume:
+
+
+services:
+  app: &django
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+    image: settings_django
+    platform: linux/x86_64
+    expose:
+      - 8000
+    depends_on:
+      - db
+    env_file:
+      - ./.envs/.django
+      - ./.envs/.postgres
+    command: /start
+    volumes:
+      - static_volume:/app/staticfiles
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.envs/.postgres
+
+  nginx:
+    build: ./compose/nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - app
+    volumes:
+      - static_volume:/app/staticfiles
