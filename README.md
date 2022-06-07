@@ -13,4 +13,5 @@ docker-compose up -d --build
 ```
 
 DRF: http://localhost:1337/api/v1/
+
 Swagger: http://localhost:1337/api/v1/swagger/
