@@ -16,7 +16,6 @@ class FilialSerializer(serializers.ModelSerializer):
 
 
 class CharacteristicsSerializer(serializers.ModelSerializer):
-    product = serializers.StringRelatedField(many=True)
 
     class Meta:
         model = Characteristics
@@ -24,8 +23,9 @@ class CharacteristicsSerializer(serializers.ModelSerializer):
 
 
 class FilialPriceSerializer(serializers.ModelSerializer):
-    product = serializers.StringRelatedField(many=True)
+    product = serializers.StringRelatedField(many=False)
+    filial = serializers.StringRelatedField(many=False)
 
     class Meta:
         model = FilialPrice
-        fields = ['id', 'product', 'filial', 'price']
+        fields = ['product', 'filial', 'price']

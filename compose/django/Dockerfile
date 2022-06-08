@@ -46,5 +46,5 @@ COPY --chown=app:app . ${APP_HOME}
 RUN chown app:app ${APP_HOME}
 
 USER app
-
+RUN mkdir $APP_HOME/staticfiles
 ENTRYPOINT ["/entrypoint"]
