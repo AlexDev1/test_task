@@ -4,7 +4,7 @@
 
 ### Git clone project
 ```
-git clone github.com/AlexDev1/test_task.git
+git clone git@github.com:AlexDev1/test_task.git
 ```
 #### Use docker:
 
