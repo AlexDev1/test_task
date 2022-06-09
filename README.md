@@ -14,6 +14,6 @@ Install docker-compose https://docs.docker.com/compose/install/
 docker-compose up -d --build 
 ```
 
-DRF: http://localhost:1337/api/v1/
+DRF: http://localhost/api/v1/
 
-Swagger: http://localhost:1337/api/v1/swagger/
+Swagger: http://localhost/api/v1/swagger/
